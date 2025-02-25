@@ -1,0 +1,46 @@
+Mapping config file looks good. Here is what will be used in generating Snakefile:
+overlap = 6
+r1_left_cut = 10
+r1_right_cut = 10
+r2_left_cut = 10
+r2_right_cut = 10
+quality_threshold = 20
+length_threshold = 30
+total_read_pairs_min = 1
+total_read_pairs_max = 6000000
+mapq_threshold = 10
+num_upstr_bases = 0
+num_downstr_bases = 2
+compress_level = 5
+unmapped_fastq = False
+unmapped_param_str = ''
+mode = 'mc'
+barcode_version = 'V2'
+r1_adapter = 'AGATCGGAAGAGCACACGTCTGAAC'
+r2_adapter = 'AGATCGGAAGAGCGTCGTGTAGGGA'
+hisat3n_dna_reference = '/home/hanliu/ref/mouse/genome/fasta/with_chrl/hisat-3n-dna/mm10_with_chrl'
+hisat3n_repeat_index_type = 'no-repeat'
+reference_fasta = '/home/hanliu/ref/mouse/genome/fasta/with_chrl/mm10_with_chrl.fa'
+chrom_size_path = '/home/hanliu/ref/mouse/genome/mm10.main.nochrM.nochrY.chrom.sizes'
+mc_stat_feature = 'CHN CGN CCC'
+mc_stat_alias = 'mCH mCG mCCC'
+
+Traceback (most recent call last):
+  File "/home/qz/pkg/cemba_data/cemba_data/demultiplex/fastq_dataframe.py", line 60, in _parse_v2_fastq_path
+    assert int(multiplex_group) in list(range(1, 7))
+ValueError: invalid literal for int() with base 10: 'CEMBA191031_12D_2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "demultiplex.py", line 11, in <module>
+    aligner='hisat-3n'
+  File "/home/qz/pkg/cemba_data/cemba_data/demultiplex/demultiplex.py", line 457, in demultiplex_pipeline
+    cpu=demultiplex_cpu)
+  File "/home/qz/pkg/cemba_data/cemba_data/demultiplex/demultiplex.py", line 51, in _demultiplex
+    'fastq_dataframe.csv')
+  File "/home/qz/pkg/cemba_data/cemba_data/demultiplex/fastq_dataframe.py", line 113, in make_fastq_dataframe
+    name_series = parser(path)
+  File "/home/qz/pkg/cemba_data/cemba_data/demultiplex/fastq_dataframe.py", line 66, in _parse_v2_fastq_path
+    raise ValueError(f'Found unknown name pattern in path {path}')
+ValueError: Found unknown name pattern in path /gale/netapp/seq12/illumina_runs/retr/12D_191031/Pool_94_12D/200127-CEMBA-mm-P56-12D-snmC-seq2-NovaSeq-pe-150-HL-CEMBA191031_12D_1-CEMBA191031_12D_2-A1_S193_L001_R1_001.fastq.gz

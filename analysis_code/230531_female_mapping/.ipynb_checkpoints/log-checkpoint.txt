@@ -1,0 +1,186 @@
+Mapping config file looks good. Here is what will be used in generating Snakefile:
+overlap = 6
+r1_left_cut = 10
+r1_right_cut = 10
+r2_left_cut = 10
+r2_right_cut = 10
+quality_threshold = 20
+length_threshold = 30
+total_read_pairs_min = 1
+total_read_pairs_max = 6000000
+mapq_threshold = 10
+num_upstr_bases = 0
+num_downstr_bases = 2
+compress_level = 5
+split_left_size = 40
+split_right_size = 40
+split_middle_min_size = 30
+min_gap = 2500
+trim_on_both_end = 5
+mode = 'm3c'
+barcode_version = 'V2'
+r1_adapter = 'AGATCGGAAGAGCACACGTCTGAAC'
+r2_adapter = 'AGATCGGAAGAGCGTCGTGTAGGGA'
+hisat3n_dna_reference = '/home/hanliu/ref/mouse/genome/fasta/with_chrl/hisat-3n-dna/mm10_with_chrl'
+hisat3n_repeat_index_type = 'repeat'
+reference_fasta = '/home/hanliu/ref/mouse/genome/fasta/with_chrl/mm10_with_chrl.fa'
+mc_stat_feature = 'CHN CGN CCC'
+mc_stat_alias = 'mCH mCG mCCC'
+chrom_size_path = '/home/hanliu/ref/mouse/genome/mm10.main.nochrM.nochrY.chrom.sizes'
+
+Detect only single multiplex group in each plate, will use V2-single mode.
+Demultiplexing raw FASTQ
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+demultiplex_0         1              1              1
+demultiplex_1         1              1              1
+demultiplex_10        1              1              1
+demultiplex_11        1              1              1
+demultiplex_12        1              1              1
+demultiplex_13        1              1              1
+demultiplex_14        1              1              1
+demultiplex_15        1              1              1
+demultiplex_2         1              1              1
+demultiplex_3         1              1              1
+demultiplex_4         1              1              1
+demultiplex_5         1              1              1
+demultiplex_6         1              1              1
+demultiplex_7         1              1              1
+demultiplex_8         1              1              1
+demultiplex_9         1              1              1
+final                 1              1              1
+total                17              1              1
+
+Select jobs to execute...
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_7:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L004+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L004+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004.demultiplex.stats.txt
+    jobid: 8
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_14:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/raw/AMB_220405_8wk_5E_6E_1_P7-1-C10+L003+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/raw/AMB_220405_8wk_5E_6E_1_P7-1-C10+L003+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/lanes/AMB_220405_8wk_5E_6E_1_P7-1-C10-L003.demultiplex.stats.txt
+    jobid: 15
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/lanes/AMB_220405_8wk_5E_6E_1_P7-1-C10-L003.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_0:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L001+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L001+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L001.demultiplex.stats.txt
+    jobid: 1
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L001.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_9:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L002+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L002+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L002.demultiplex.stats.txt
+    jobid: 10
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L002.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_8:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L001+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L001+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L001.demultiplex.stats.txt
+    jobid: 9
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L001.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_1:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L002+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L002+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L002.demultiplex.stats.txt
+    jobid: 2
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L002.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_10:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L003+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/raw/AMB_220405_8wk_5E_6E_1_P6-1-I2+L003+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L003.demultiplex.stats.txt
+    jobid: 11
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P6-1-I2/lanes/AMB_220405_8wk_5E_6E_1_P6-1-I2-L003.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_3:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L004+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L004+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004.demultiplex.stats.txt
+    jobid: 4
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_12:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/raw/AMB_220405_8wk_5E_6E_1_P7-1-C10+L001+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/raw/AMB_220405_8wk_5E_6E_1_P7-1-C10+L001+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/lanes/AMB_220405_8wk_5E_6E_1_P7-1-C10-L001.demultiplex.stats.txt
+    jobid: 13
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P7-1-C10/lanes/AMB_220405_8wk_5E_6E_1_P7-1-C10-L001.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Aug  1 10:03:13 2023]
+rule demultiplex_5:
+    input: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L002+R1.fq.gz, /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L002+R2.fq.gz
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L002.demultiplex.stats.txt
+    jobid: 6
+    reason: Missing output files: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L002.demultiplex.stats.txt
+    resources: tmpdir=/tmp
+
+cutadapt: error: Error in sequence file at unknown line: Reads are improperly paired. Read name 'A00280:554:H2G3CDSX5:4:1455:2618:1016 1:N:0:GCGAGTACAA+TGGCTTATGG' in file 1 does not match 'A00280:554:H2G3CDSX5:4:1453:2166:1016 2:N:0:GCGAGTACAA+TGGCTTATGG' in file 2.
+[Tue Aug  1 10:22:58 2023]
+Error in rule demultiplex_7:
+    jobid: 8
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004.demultiplex.stats.txt
+    shell:
+        cutadapt -Z -e 0.01 --no-indels -g file:/home/qz/miniconda3/envs/allcools/lib/python3.7/site-packages/cemba_data/files/random_index_v2/random_index_v2.fa -o /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004-{name}-R1.fq.gz -p /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004-{name}-R2.fq.gz /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L004+R1.fq.gz /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/raw/AMB_220405_8wk_5E_6E_1_P5-1-C23+L004+R2.fq.gz > /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004.demultiplex.stats.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job demultiplex_7 since they might be corrupted:
+/ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P5-1-C23/lanes/AMB_220405_8wk_5E_6E_1_P5-1-C23-L004.demultiplex.stats.txt
+cutadapt: error: Error in FASTQ file at line 181681755: Line expected to start with '+', but found '@'
+[Tue Aug  1 10:49:20 2023]
+Error in rule demultiplex_3:
+    jobid: 4
+    output: /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004.demultiplex.stats.txt
+    shell:
+        cutadapt -Z -e 0.01 --no-indels -g file:/home/qz/miniconda3/envs/allcools/lib/python3.7/site-packages/cemba_data/files/random_index_v2/random_index_v2.fa -o /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004-{name}-R1.fq.gz -p /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004-{name}-R2.fq.gz /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L004+R1.fq.gz /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/raw/AMB_220405_8wk_5E_6E_1_P1-1-K15+L004+R2.fq.gz > /ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004.demultiplex.stats.txt
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job demultiplex_3 since they might be corrupted:
+/ceph/gale-1/qzeng/Pool_AMB38_mm/AMB_220405_8wk_5E_6E_1_P1-1-K15/lanes/AMB_220405_8wk_5E_6E_1_P1-1-K15-L004.demultiplex.stats.txt
+[Tue Aug  1 11:09:31 2023]
+Finished job 6.
+1 of 17 steps (6%) done
+[Tue Aug  1 11:19:43 2023]
+Finished job 9.
+2 of 17 steps (12%) done
+[Tue Aug  1 11:20:11 2023]
+Finished job 10.
+3 of 17 steps (18%) done
+[Tue Aug  1 11:20:45 2023]
+Finished job 11.
+4 of 17 steps (24%) done
+[Tue Aug  1 11:31:33 2023]
+Finished job 13.
+5 of 17 steps (29%) done
