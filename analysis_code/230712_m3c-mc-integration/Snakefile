@@ -1,0 +1,181 @@
+
+groups = [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+
+
+rule final:
+    input:
+        # target the final rule success flag of each group
+        expand('{group_name}/log/step_5.success', group_name=groups)
+    output:
+        "Snakemake.success"
+    shell:
+        # create a final success flag
+        "touch {output}"
+
+
+rule step_1a:
+    input:
+        "/home/qzeng_salk_edu/project/230712_m3c-mc-integration/Snakefile",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/01a.select_mc_cef.ipynb"
+    output:
+        "{group_name}/log/step_1a.success"
+    log:
+        output_nb="{group_name}/01a.select_mc_cef.ipynb",
+        log="{group_name}/log/01a.select_mc_cef.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_1a.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_1b:
+    input:
+        "/home/qzeng_salk_edu/project/230712_m3c-mc-integration/Snakefile",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/01b.select_m3c_cef.ipynb"
+    output:
+        "{group_name}/log/step_1b.success"
+    log:
+        output_nb="{group_name}/01b.select_m3c_cef.ipynb",
+        log="{group_name}/log/01b.select_m3c_cef.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_1b.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_2a:
+    input:
+        "{group_name}/log/step_1a.success", "{group_name}/log/step_1b.success",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/02a.prepare_mc.ipynb"
+    output:
+        "{group_name}/log/step_2a.success"
+    log:
+        output_nb="{group_name}/02a.prepare_mc.ipynb",
+        log="{group_name}/log/02a.prepare_mc.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_2a.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_2b:
+    input:
+        "{group_name}/log/step_1a.success", "{group_name}/log/step_1b.success",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/02b.prepare_m3c.ipynb"
+    output:
+        "{group_name}/log/step_2b.success"
+    log:
+        output_nb="{group_name}/02b.prepare_m3c.ipynb",
+        log="{group_name}/log/02b.prepare_m3c.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_2b.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_3:
+    input:
+        "{group_name}/log/step_2a.success", "{group_name}/log/step_2b.success",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/03.merge_and_pca.ipynb"
+    output:
+        "{group_name}/log/step_3.success"
+    log:
+        output_nb="{group_name}/03.merge_and_pca.ipynb",
+        log="{group_name}/log/03.merge_and_pca.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_3.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_4:
+    input:
+        "{group_name}/log/step_3.success",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/04.integration.ipynb"
+    output:
+        "{group_name}/log/step_4.success"
+    log:
+        output_nb="{group_name}/04.integration.ipynb",
+        log="{group_name}/log/04.integration.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_4.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "
+
+
+rule step_5:
+    input:
+        "{group_name}/log/step_4.success",
+    params:
+        input_nb="/home/qzeng_salk_edu/project/230712_m3c-mc-integration/notebooks/05.embedding.ipynb"
+    output:
+        "{group_name}/log/step_5.success"
+    log:
+        output_nb="{group_name}/05.embedding.ipynb",
+        log="{group_name}/log/05.embedding.ipynb.log"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    shell:
+        "glider-preset papermill "
+        "--input_path {params.input_nb} "
+        "--output_path {log.output_nb} "
+        "--config_path {wildcards.group_name}/log/step_5.config.yaml "
+        "--cwd {wildcards.group_name} "
+        "--log_path {log.log} "
+        "--success_flag {output} "

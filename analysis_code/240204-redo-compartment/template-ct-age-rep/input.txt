@@ -1,0 +1,6 @@
+.	.	Oligo_NN_8wk_rep1_cool_100Kb	Oligo_NN_8wk_rep1_cool
+.	.	Oligo_NN_8wk_rep2_cool_100Kb	Oligo_NN_8wk_rep2_cool
+.	.	Oligo_NN_9mo_rep1_cool_100Kb	Oligo_NN_9mo_rep1_cool
+.	.	Oligo_NN_9mo_rep2_cool_100Kb	Oligo_NN_9mo_rep2_cool
+.	.	Oligo_NN_18mo_rep1_cool_100Kb	Oligo_NN_18mo_rep1_cool
+.	.	Oligo_NN_18mo_rep2_cool_100Kb	Oligo_NN_18mo_rep2_cool
