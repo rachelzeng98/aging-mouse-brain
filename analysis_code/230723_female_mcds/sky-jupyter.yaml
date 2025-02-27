@@ -1,0 +1,25 @@
+# jupyter.yaml
+
+name: jupyter-sky1
+
+resources:
+  cloud: gcp
+  instance_type: n2d-standard-96
+  region: us-west1
+  disk_size: 400
+  image_id: projects/prod-635e/global/images/rachel-230503-te
+
+file_mounts:
+  /data:
+    source: gs://ecker-rachel-amb-datasets
+    mode: MOUNT
+  /ref:
+    source: gs://ecker-rachel-reference
+    mode: MOUNT
+
+setup: |
+  #conda install mamba -y -n base -c conda-forge
+
+run: |
+  cd ~
+  #jupyter-lab --ip=0.0.0.0 --port=8082 --no-browser --NotebookApp.token='pw'

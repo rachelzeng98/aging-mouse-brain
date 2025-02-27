@@ -1,0 +1,26 @@
+# jupyter.yaml
+
+name: jupyter-sky1
+
+resources:
+  cloud: gcp
+  instance_type: n2d-standard-32
+  region: us-west1
+  disk_size: 500
+  #image_id: projects/ecker-qzeng/global/machineImages/rachel-230830-merge-allc
+  image_id: projects/ecker-qzeng/global/images/merge-allc-230830
+
+file_mounts:
+  /data:
+    source: gs://ecker-rachel-amb-datasets
+    mode: MOUNT
+  /ref:
+    source: gs://ecker-rachel-reference
+    mode: MOUNT
+
+setup: |
+  #conda install mamba -y -n base -c conda-forge
+  conda activate mapping
+
+run: |
+  conda activate mapping
